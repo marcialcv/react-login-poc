@@ -1,0 +1,5 @@
+Bundle-Name: silent-login-react-app
+Bundle-SymbolicName: silent.login.react.app
+Bundle-Version: 1.0.0
+Export-Package: silent.login.react.app.constants
+Web-ContextPath: /silent-login-react-app

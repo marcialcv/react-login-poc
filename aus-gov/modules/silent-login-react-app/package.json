@@ -1,0 +1,21 @@
+{
+	"dependencies": {
+		"react": "16.8.6",
+		"react-dom": "16.8.6",
+		"crypto-js": "4.0.0",
+		"crypto-random-string": "3.2.0",
+		"jshashes": "1.0.8"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "6.24.1",
+		"liferay-npm-bundler": "2.22.1"
+	},
+	"main": "lib/App.js",
+	"name": "silent-login-react-app",
+	"scripts": {
+		"build": "babel --source-maps -d build/resources/main/META-INF/resources src/main/resources/META-INF/resources && liferay-npm-bundler"
+	},
+	"version": "1.0.25"
+}

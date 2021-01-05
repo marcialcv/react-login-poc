@@ -1,0 +1,21 @@
+Bundle-Name: portal-security-sso-openid-connect-impl-fragment
+Bundle-SymbolicName: portal.security.sso.openid.connect.impl.fragment
+Bundle-Version: 1.0.0
+Fragment-Host: com.liferay.portal.security.sso.openid.connect.impl;bundle-version="5.0.15"
+Export-Package:\
+    com.nimbusds.openid.connect.sdk.op;version=6.16.2,\
+    com.nimbusds.openid.connect.sdk.rp;version=6.16.2
+Import-Package:\
+	!com.google.crypto.tink.*,\
+	\
+	!net.shibboleth.utilities.*,\
+	\ 
+	!org.bouncycastle.*,\
+	\
+	!org.cryptomator.siv.*,\
+	\
+	!org.joda.time.*,\
+	\
+	!org.opensaml.*,\
+	\
+	*
