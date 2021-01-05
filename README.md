@@ -2,7 +2,7 @@
 
 
 This is the **first approach of a PoC** about how to use a Liferay React Application to make calls to a third API with OpenId auth using the client side
-The React app is npm-bundled using [liferay-js-generator](https://help.liferay.com/hc/en-us/articles/360029147391-Liferay-JS-Generator) or [Liferay Developer Studio](Liferay Developer Studio (https://help.liferay.com/hc/en-us/articles/360018151491-Introduction-to-Liferay-IDE-and-Liferay-Developer-Studio)
+The React app is npm-bundled using [liferay-js-generator](https://help.liferay.com/hc/en-us/articles/360029147391-Liferay-JS-Generator) or [Liferay Developer Studio] (https://help.liferay.com/hc/en-us/articles/360018151491-Introduction-to-Liferay-IDE-and-Liferay-Developer-Studio)
 
 This workspace version **is based on [Liferay CE 7.3.5 GA6](https://hub.docker.com/layers/liferay/portal/7.3.5-ga6-d1.3.0-20201215234716/images/sha256-faa876881b7bf300f41aaae0faa59387e9c2417176730afc7b17790fa051bb5b?context=explore) version**: 
 
