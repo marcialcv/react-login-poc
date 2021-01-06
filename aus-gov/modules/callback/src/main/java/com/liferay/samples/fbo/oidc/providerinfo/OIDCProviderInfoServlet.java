@@ -7,7 +7,6 @@ import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.security.sso.openid.connect.OpenIdConnectProviderRegistry;
-import com.liferay.portal.security.sso.openid.connect.OpenIdConnectServiceException.ProviderException;
 import com.liferay.samples.fbo.oidc.callback.OIDCCallbackServlet;
 import com.nimbusds.openid.connect.sdk.op.OIDCProviderMetadata;
 import com.nimbusds.openid.connect.sdk.rp.OIDCClientMetadata;
@@ -49,7 +48,6 @@ public class OIDCProviderInfoServlet extends HttpServlet {
 		throws IOException, ServletException {
 
 		_log.info("User ID: " + PortalUtil.getUserId(httpServletRequest));
-		_log.info("Company ID: " + PortalUtil.getCompanyId(httpServletRequest));
 		
 		if (_log.isInfoEnabled()) {
 			_log.info("doGet");
@@ -63,13 +61,19 @@ public class OIDCProviderInfoServlet extends HttpServlet {
 	 *
 	 * @return OpenID Provider Auth URL
 	 */
-	private String _generateJSON(String clientId, String idProvider) {
+	private String _generateJSON(String clientId, String idProvider, long companyId) {
 		
 		StringBuffer sb = new StringBuffer();
 
 		String authURL;
+		String tokenURL;
 		try {
-			authURL = _openIdConnectProviderRegistry.findOpenIdConnectProvider(PortalUtil.getDefaultCompanyId(),idProvider).getOIDCProviderMetadata().getAuthorizationEndpointURI().toString();
+			authURL = _openIdConnectProviderRegistry.findOpenIdConnectProvider(companyId,idProvider).getOIDCProviderMetadata().getAuthorizationEndpointURI().toString();
+			tokenURL = _openIdConnectProviderRegistry.findOpenIdConnectProvider(companyId,idProvider).getOIDCProviderMetadata().getTokenEndpointURI().toString();
+			
+			_log.info("authURL: "+authURL);
+			_log.info("tokenURL: "+tokenURL);
+			
 		} catch (Exception e) {
 			_log.error("Failed to get OIDC Provider Authorization Endpoint URI");
 			sb.append("{");
@@ -79,7 +83,8 @@ public class OIDCProviderInfoServlet extends HttpServlet {
 		}
 
 		sb.append("{");
-		sb.append("  \"auth_url\": \"" + authURL + "\"");
+		sb.append("  \"auth_url\": \"" + authURL + "\",");
+		sb.append("  \"token_url\": \"" + tokenURL + "\"");
 		sb.append("}");
 		return new String(sb);
 	}
@@ -100,13 +105,17 @@ public class OIDCProviderInfoServlet extends HttpServlet {
 			String[] split = httpServletRequest.getPathInfo().split("/");
 			
 			String clientId = split[2];//"medfile-react-client-app";
-			String idProvider = split[1];//"France-connect";
+			String idProvider = split[1];//"oi";
 
 			_log.info("Client ID: " + clientId);
 			_log.info("ID Provider: " + idProvider);
 			
+			long companyId = PortalUtil.getCompanyId(httpServletRequest);
+			
+			_log.info("Company ID: " + companyId);
+			
 			ServletResponseUtil.write(
-				httpServletResponse, _generateJSON(clientId, idProvider));
+				httpServletResponse, _generateJSON(clientId, idProvider, companyId));
 		}
 		catch (Exception e) {
 			_log.warn(e.getMessage(), e);

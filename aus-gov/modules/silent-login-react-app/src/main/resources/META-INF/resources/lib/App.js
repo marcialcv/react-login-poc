@@ -5,11 +5,11 @@ import ReactDOM from 'react-dom';
 
 class App extends React.Component {
   
-
-// Make changes
   makeApiCall() {
+// This block is the way to make calls to an API
+	  
     var xhr = new  XMLHttpRequest();
-    xhr.open("GET", "http://localhost:8081/api/patients/11", true);
+    xhr.open("GET", "http://intranet.myliferay.com:8082/o/custom-api/users/123", true);
     xhr.setRequestHeader("Authorization", "Bearer " + this.state.accessToken);
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
@@ -29,6 +29,7 @@ class App extends React.Component {
       console.error(xhr.statusText);
     };
     xhr.send();
+	  
   }
 
   requestNewAccessToken() {
@@ -65,5 +66,7 @@ class App extends React.Component {
 }
 
 export default function(elementId) {
-	ReactDOM.render(<App />, document.getElementById(elementId));
+	ReactDOM.render(
+			<App />, document.getElementById(elementId)
+	);
 }

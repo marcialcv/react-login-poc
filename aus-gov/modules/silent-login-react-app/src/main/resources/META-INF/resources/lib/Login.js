@@ -14,10 +14,12 @@ class Login extends React.Component {
 		    } else  if (event.data.data !== null) {
 			    console.log("Authorization code received: " + event.data.code);
 			    let  xhr = new  XMLHttpRequest();
+			    console.log("state tokenURL value --> "+this.state.tokenURL);
 			    xhr.open("POST", this.state.tokenURL);
 			    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			    xhr.onreadystatechange = function () {
 				    if (xhr.readyState === 4) {
+				    	console.log("Status --> " +xhr.status);
 					    if (xhr.status === 200) {
 						    var  json_obj = JSON.parse(xhr.responseText);
 						    this.setState({accessToken:  json_obj.access_token});
@@ -35,6 +37,7 @@ class Login extends React.Component {
 			    if (this.props.pkce !== null) {
 				    tokenRequestData += "&code_verifier=" + this.state.codeVerifier;
 			    }
+			    console.log("tokenRequestData value --> "+ tokenRequestData);
 			    xhr.send(tokenRequestData);
 		    }
 	    }
@@ -42,15 +45,23 @@ class Login extends React.Component {
 
     getOIDCUrlAndDo(action) {
 	    console.log("getAuthUrlAndDo");
+	    console.log("action value --> "+ action);
+	    console.log("this.state.authURL --> "+ this.state.authURL)
+	    
 	    if(this.state.authURL === null) {
+	    	console.log("enter");
 		    let  xhr = new  XMLHttpRequest();
 		    xhr.open("GET", "/o/oidc/providerinfo/" + this.props.idProvider + "/" + this.props.clientId);
 		    xhr.onreadystatechange = function () {
+		    	console.log("xhr.readyState value --> "+ xhr.readyState);
 			    if (xhr.readyState === 4) {
+			    	console.log("xhr.status value --> "+ xhr.status);
 				    if (xhr.status === 200) {
+				    	
 					    var  json_obj = JSON.parse(xhr.responseText);
 					    this.state.authURL = json_obj.auth_url;
 					    this.state.tokenURL = json_obj.token_url;
+					    console.log("token_url value --> "+ json_obj.token_url);
 					    action(json_obj.auth_url);
 				    } else {
 					    console.error(xhr.statusText);
@@ -62,6 +73,7 @@ class Login extends React.Component {
 		    };
 		    xhr.send();
 	    } else {
+	    	console.log("NO enter");
 		    action(this.state.authURL);
 	    }
     }
@@ -124,12 +136,15 @@ class Login extends React.Component {
 
     constructor(props) {
         super(props);
+        console.log("INICIO");
+        
         this.state = {
         	    accessToken:  null,
         	    authURL:  null,
                 tokenURL:  null,
         	    codeVerifier:  null
             }
+       
 	    // This line allows me to call this.setState from inside of the handleMessageEvent method
 	    this.handleMessageEvent = this.handleMessageEvent.bind(this);
 	    this.doTriggerRedirect = this.doTriggerRedirect.bind(this);
@@ -149,7 +164,7 @@ class Login extends React.Component {
     }
     render() {
 	    this.loginIframeRef = React.createRef();
-	    let  loginIframe = <iframe  title="Silent login iframe"  ref={this.loginIframeRef} sandbox="allow-same-origin allow-scripts"></iframe>;
+	    let  loginIframe = <iframe class='hidden' title='Silent login iframe'  ref={this.loginIframeRef} ></iframe>;
 	    return (
 		    <div  className="Login">
 			    <p>Authorization URL: {this.state.authURL}</p>

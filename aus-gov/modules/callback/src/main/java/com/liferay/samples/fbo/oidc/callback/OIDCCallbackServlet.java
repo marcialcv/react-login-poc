@@ -68,11 +68,18 @@ public class OIDCCallbackServlet extends HttpServlet {
 		sb.append("<head><title>OIDC Callback manager</title></head>");
 		sb.append("<body>");
 		sb.append("<script type=\"text/javascript\">");
-		sb.append("  var origin = (window.location != window.parent.location) ? document.referrer : document.location.href;");
+		sb.append("  console.log('window.location = ' + window.location);");
+		sb.append("  console.log('window.parent.location = ' + window.parent.location);");
+		sb.append("  console.log('document.referrer = ' + document.referrer);");
+		sb.append("  console.log('document.location.href = ' + document.location.href);");
+		sb.append("  var origin = (window.location != window.parent.location) ? window.location.origin : document.location.href;");
+		sb.append("  console.log('Origin value = ' + origin);");
 		sb.append("  var urlParams = new URLSearchParams(window['location'].search);");
 		sb.append("  var error = urlParams.get(\"error\");");
 		sb.append("  var code = urlParams.get(\"code\");");
 		sb.append("  var json_obj, status = false;");
+		sb.append("  console.log('error value = ' + error);");
+		sb.append("  console.log('code value = ' + code);");
 		sb.append("  if (error === 'login_required' || error === 'interaction_required') {");
 		sb.append("    ");
 		sb.append("    var message = {");
@@ -80,15 +87,16 @@ public class OIDCCallbackServlet extends HttpServlet {
 		sb.append("      id_provider: \"" + idProvider + "\",");
 		sb.append("      interaction_required: true");
 		sb.append("    };");
-		sb.append("    window.top.postMessage(message, '*');");
+		sb.append("  	console.log('if 1 message value = ' + message);");
 		sb.append("  } else {");
 		sb.append("    var message = {");
 		sb.append("      client_id: \"" + clientId + "\",");
 		sb.append("      id_provider: \"" + idProvider + "\",");
 		sb.append("      code: \"" + code + "\"");
 		sb.append("    };");
-		sb.append("    window.top.postMessage(message, '*');");
+		sb.append("  	console.log('else 2 message value = ' + message);");
 		sb.append("  }");
+		sb.append("  window.parent.postMessage(message, origin);");
 		sb.append("</script>");
 		sb.append("</body>");
 		sb.append("</html>");
@@ -112,7 +120,7 @@ public class OIDCCallbackServlet extends HttpServlet {
 			String[] split = httpServletRequest.getPathInfo().split("/");
 			
 			String clientId = split[2];//"medfile-react-client-app";
-			String idProvider = split[1];//"France-connect";
+			String idProvider = split[1];//"oi";
 			String code = ParamUtil.get(httpServletRequest, "code", "");
 
 			_log.info("Client ID: " + clientId);
