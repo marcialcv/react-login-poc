@@ -44,14 +44,40 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
+    
+    console.log(this.props);
     this.state = {
     	    accessToken: null,
-    	    firstName: "world"
+    	    firstName: "world",
+    	    message: "Waiting for a ball..."
     	  }
     this.makeApiCall = this.makeApiCall.bind(this);
     this.handleAccessToken = this.handleAccessToken.bind(this);
     this._login = React.createRef();
+    this.checkParam = this.checkParam.bind(this);
+    Liferay.on('stuff-happened', this.printMessage.bind(this));
     
+   
+    
+  }
+  
+  checkParam(){
+	  console.log("Reading param from URL");
+	  var urlParams = new URLSearchParams(window['location'].search);
+	  var message = urlParams.get("message");
+	  if(message){
+		  this.setState({message: message});
+	  }
+  }
+  
+	  
+  printMessage(event) {
+	console.log("Event received!!!");
+	this.setState({message: event.data});
+  }
+  
+  componentDidMount(){
+	     this.checkParam();
   }
 
   render() {
@@ -60,6 +86,11 @@ class App extends React.Component {
         <h1>Hello, {this.state.firstName}!</h1>
         <Login  ref={this._login}  action={this.handleAccessToken}  clientId="medfile-react-client-app"  idProvider="oi"  pkce="S256"  />
         <button  onClick={this.makeApiCall}>API Call</button>
+        
+        
+        <h1>Catcher: {this.state.message}</h1>
+        
+        
       </div>
     );
   }

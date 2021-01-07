@@ -136,7 +136,6 @@ class Login extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log("INICIO");
         
         this.state = {
         	    accessToken:  null,
@@ -164,7 +163,7 @@ class Login extends React.Component {
     }
     render() {
 	    this.loginIframeRef = React.createRef();
-	    let  loginIframe = <iframe class='hidden' title='Silent login iframe'  ref={this.loginIframeRef} ></iframe>;
+	    let  loginIframe = <iframe className='hidden' title='Silent login iframe'  ref={this.loginIframeRef} ></iframe>;
 	    return (
 		    <div  className="Login">
 			    <p>Authorization URL: {this.state.authURL}</p>

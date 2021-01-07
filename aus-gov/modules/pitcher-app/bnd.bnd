@@ -1,0 +1,5 @@
+Bundle-Name: pitcher-app
+Bundle-SymbolicName: pitcher.app
+Bundle-Version: 1.0.0
+Export-Package: pitcher.app.constants
+Web-ContextPath: /pitcher-app
