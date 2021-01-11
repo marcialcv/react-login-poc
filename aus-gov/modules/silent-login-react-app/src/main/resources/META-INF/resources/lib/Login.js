@@ -22,6 +22,7 @@ class Login extends React.Component {
 				    	console.log("Status --> " +xhr.status);
 					    if (xhr.status === 200) {
 						    var  json_obj = JSON.parse(xhr.responseText);
+						    this.setState({idToken: json_obj.id_token});
 						    this.setState({accessToken:  json_obj.access_token});
 						    this.props.action(json_obj.access_token);
 					    } else {
@@ -91,6 +92,7 @@ class Login extends React.Component {
     requestNewAccessToken() {
 	    console.log("requestNewAccessToken");
 	    this.state.accessToken = null;
+	    this.state.idToken = null;
 	    this.doLoadSilentLoginIframe(this.state.authURL);
     }
 
@@ -141,7 +143,8 @@ class Login extends React.Component {
         	    accessToken:  null,
         	    authURL:  null,
                 tokenURL:  null,
-        	    codeVerifier:  null
+        	    codeVerifier:  null,
+        	    idToken: null
             }
        
 	    // This line allows me to call this.setState from inside of the handleMessageEvent method
@@ -168,6 +171,7 @@ class Login extends React.Component {
 		    <div  className="Login">
 			    <p>Authorization URL: {this.state.authURL}</p>
 			    <p>Access token: {this.state.accessToken}</p>
+			    <p>ID token: {this.state.idToken}</p>
 			    {loginIframe}
 			</div>
 	    );
