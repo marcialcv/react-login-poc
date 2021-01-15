@@ -52,7 +52,7 @@ export class AppComponent {
 		//check IPC by session
 		Liferay.Util.Session.get('my-message-session').then((value:string) =>{ 
 			if(value != null && value != "null"){
-				console.log(`valor dentro da promise${value}`)
+				console.log(`value into promise -> ${value}`)
 				this.printMessageFromSession(value);
 				Liferay.Util.Session.set("my-message-session",null);
 			} 
