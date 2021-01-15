@@ -58,11 +58,6 @@ export class AppComponent {
 			} 
 		});
 	}
-
-	//get sessionValue
-	getSessionValue(value:string){
-		return value;
-	}
 	
 	//print message from URL query string
 	printMessageFromParam(){
