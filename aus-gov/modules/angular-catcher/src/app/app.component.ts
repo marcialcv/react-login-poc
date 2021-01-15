@@ -41,7 +41,7 @@ export class AppComponent {
 	get configurationJSON() {
 		return JSON.stringify(this.params.configuration, null, 2);
 	}
-	sessionM:string;
+
 	ngOnInit() {
 		//check IPC with event
 		Liferay.on('my-message-event', this.printMessageFromEvent.bind(this));
@@ -50,7 +50,6 @@ export class AppComponent {
 		this.printMessageFromParam();
 		
 		//check IPC by session
-		
 		Liferay.Util.Session.get('my-message-session').then((value:string) =>{ 
 			if(value != null && value != "null"){
 				console.log(`valor dentro da promise${value}`)
@@ -58,12 +57,6 @@ export class AppComponent {
 				Liferay.Util.Session.set("my-message-session",null);
 			} 
 		});
-		// console.log('valor message session ->' + this.sessionM)
-		// if(this.sessionM != null){
-		// 	console.log("session entra sempre-> " + Liferay.Util.Session.get('my-message-session'))
-		// Liferay.Util.Session.get('my-message-session').then( (res: string) => this.printMessageFromSession(res));
-		// Liferay.Util.Session.set("my-message-session",null); 
-		// }
 	}
 
 	//get sessionValue
