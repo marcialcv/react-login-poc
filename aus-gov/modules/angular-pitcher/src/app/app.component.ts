@@ -17,7 +17,7 @@ export class AppComponent {
 		this.labels = {        
 			
 			configuration: Liferay.Language.get('configuration'),
-			
+			pageConfigured: Liferay.Language.get('page-configured'),
 			portletNamespace: Liferay.Language.get('portlet-namespace'),
         	contextPath: Liferay.Language.get('context-path'),
 			portletElementId: Liferay.Language.get('portlet-element-id'),
@@ -27,7 +27,11 @@ export class AppComponent {
 	get configurationJSON() {
 		return JSON.stringify(this.params.configuration, null, 2);
 	}
-	
+
+	get configurationPage() {
+		return JSON.stringify(this.params.configuration.portletInstance.page);
+	}
+
 	throwBall(){
     	console.log("Ball thrown");
     	Liferay.fire('my-message-event', { data: 'Ball catched!!!'});
@@ -36,7 +40,7 @@ export class AppComponent {
   	throwBallAway(){
   		console.log("Ball thrown to other page!");
   		
-  		var myUrl = new URL('/web/guest/secondpage', window.location.origin);
+  		var myUrl = new URL(this.configurationPage.replace(/"/g,""), window.location.origin);
   		
   		myUrl.searchParams.set('message', 'Ball catched!');
   		
@@ -47,9 +51,7 @@ export class AppComponent {
   	
   	throwBySession(){
   		console.log("Ball thrown to other page!");
-  		
   		Liferay.Util.Session.set("my-message-session","Ball thrown. Catched from session!");
-  		
-  		document.location.href = "/web/guest/secondpage";
+	    document.location.href = this.configurationPage.replace(/"/g,"");
   	}
 }
