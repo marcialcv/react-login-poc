@@ -1,7 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/liferay/liferay-js-toolkit/master/resources/schemas/configuration.schema.json",
 	"system": {
-		"category": "angular-pitcher",
+		"category": "others",
 		"name": "angular-pitcher",
 		"fields": {
 			"fruit": {
@@ -19,16 +19,11 @@
 	},
 	"portletInstance": {
 		"fields": {
-			"drink": {
+			"page": {
 				"type": "string",
-				"name": "drink",
-				"description": "drink-help",
-				"default": "water",
-				"options": {
-					"water": "water",
-					"wine": "wine",
-					"beer": "beer"
-				}
+				"name": "second-page-to-send-ball",
+				"description": "relative-path",
+				"default": "/web/guest/secondpage"
 			}
 		}
 	}
