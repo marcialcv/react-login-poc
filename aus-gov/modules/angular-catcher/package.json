@@ -1,7 +1,7 @@
 {
 	"name": "angular-catcher",
-	"version": "1.0.2",
-	"description": "Angular Catcher",
+	"version": "1.0.3",
+	"description": "Angular Catcher", 
 	"devDependencies": {
 		"liferay-npm-bundler": "^2.22.1",
 		"liferay-npm-build-support": "^2.22.1",

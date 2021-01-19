@@ -1,0 +1,7 @@
+.gradle/
+build/
+.DS_Store
+dist/
+node_modules/
+target/
+liferay-npm-bundler-report.html

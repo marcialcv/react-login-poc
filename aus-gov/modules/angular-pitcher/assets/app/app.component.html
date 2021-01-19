@@ -16,12 +16,16 @@
 		<span class="tag">{{labels.configuration}}:</span>
 		<span class="value pre">{{configurationJSON}}</span>
 	</div>
+
+	<div>
+		<span class="tag">{{labels.pageConfigured}}:</span>
+		<span class="value pre">{{configurationPage}}</span>
+	</div>
 	
-	
-	<button  (click)="throwBall()" >Throw Ball by event to the same page</button>
+	<button id="samePage" (click)="throwBall()" >Throw Ball by event to the same page</button>
 		
-	<button (click)="throwBallAway()">Throw Ball by queryString param to other page!</button>
+	<button id="queryString" (click)="throwBallAway()">Throw Ball by queryString param to other page!</button>
 		
-	<button (click)="throwBySession()">Throw Ball by Session to other page!</button>
+	<button id="bySession" (click)="throwBySession()">Throw Ball by Session to other page!</button>
 	
 </div>

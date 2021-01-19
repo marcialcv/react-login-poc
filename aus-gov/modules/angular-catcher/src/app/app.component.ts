@@ -20,15 +20,16 @@ export class AppComponent {
 	params: LiferayParams;
 	labels: any;
 	
+	
 	communication: Communication = {
 		message: 'Waiting for a ball...'
+
 	};
 	
 	constructor() {
 		this.labels = {        
 			
 			configuration: Liferay.Language.get('configuration'),
-			
 			portletNamespace: Liferay.Language.get('portlet-namespace'),
         	contextPath: Liferay.Language.get('context-path'),
 			portletElementId: Liferay.Language.get('portlet-element-id'),
@@ -40,7 +41,7 @@ export class AppComponent {
 	get configurationJSON() {
 		return JSON.stringify(this.params.configuration, null, 2);
 	}
-	
+
 	ngOnInit() {
 		//check IPC with event
 		Liferay.on('my-message-event', this.printMessageFromEvent.bind(this));
@@ -49,7 +50,18 @@ export class AppComponent {
 		this.printMessageFromParam();
 		
 		//check IPC by session
-		Liferay.Util.Session.get('my-message-session').then( (res: string) => this.printMessageFromSession(res));
+		Liferay.Util.Session.get('my-message-session').then((value:string) =>{ 
+			if(value != null && value != "null"){
+				console.log(`valor dentro da promise${value}`)
+				this.printMessageFromSession(value);
+				Liferay.Util.Session.set("my-message-session",null);
+			} 
+		});
+	}
+
+	//get sessionValue
+	getSessionValue(value:string){
+		return value;
 	}
 	
 	//print message from URL query string
