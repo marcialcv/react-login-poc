@@ -19,8 +19,8 @@ export class Communication {
 export class AppComponent {
 	params: LiferayParams;
 	labels: any;
-	
-	
+	imageLogo: string;
+
 	communication: Communication = {
 		message: 'Waiting for a ball...'
 
@@ -34,12 +34,17 @@ export class AppComponent {
         	contextPath: Liferay.Language.get('context-path'),
 			portletElementId: Liferay.Language.get('portlet-element-id'),
 			message: Liferay.Language.get('message')
+			
 		}
-		
+		this.imageLogo= "/images/logo_liferay.jpg"
 	}
 	
 	get configurationJSON() {
 		return JSON.stringify(this.params.configuration, null, 2);
+	}
+
+	get relativeImagePath() {
+		return this.params.contextPath + this.imageLogo;
 	}
 
 	ngOnInit() {
