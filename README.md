@@ -22,4 +22,4 @@ This workspace version **is based on [Liferay CE 7.3.5 GA6](https://hub.docker.c
 2. Instance it on a widget private page of a site.
 3. The Liferay portal is registered as a confidential client towards that IdP with clientID + secret.
 4. The react app is another client (a public one) towards that same IdP. That way, if the user authenticates to the IDP to access the private page, he will have an authenticated session on the Authorization Server and the prompt=none token request will work transparently
-If few interactions with the Authorization Server happen, the user may lose his session towards the Authorization server while still having an authenticated session on the portal. If that happens, the React widget will send the user to the OpenID Provider to re-authenticate. 
+If few interactions with the Authorization Server happen, the user may lose his session towards the Authorization server while still having an authenticated session on the portal. If that happens, the React widget will send the user to the OpenID Provider to re-authenticate.  
