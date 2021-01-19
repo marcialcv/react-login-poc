@@ -16,7 +16,7 @@ This workspace version **is based on [Liferay CE 7.3.5 GA6](https://hub.docker.c
       `modules/portal-security-sso-openid-connect-impl-fragment/build/libs/portal.security.sso.openid.connect.impl.fragment-1.0.0.jar `
       `modules/silent-login-react-app/build/libs/silent.login.react.app-1.0.0.jar`
 
-* Considerations in order to test the React App:
+* Considerations in order to test the React App: 
 
 1. Configure Portal level an OpenID Provider following the official documentation: https://help.liferay.com/hc/en-us/articles/360024805271-Authenticating-with-OpenID-Connect
 2. Instance it on a widget private page of a site.
