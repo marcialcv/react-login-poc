@@ -9,7 +9,7 @@ This workspace version **is based on [Liferay CE 7.3.5 GA6](https://hub.docker.c
 * Steps to build the modules:
   1. Execute `./gradlew clean build` command in the parent workspace folder
 
-* Steps to deploy the modules:
+* Steps to deploy the modules: 
 
   1. Copy all generated jar files inside `${module}/build/libs/*.jar` to the deploy Liferay folder (usually located on `/opt/liferay/deploy`):
       `modules/callback/build/libs/callback-1.0.0.jar`
