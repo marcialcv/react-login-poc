@@ -9,3 +9,4 @@
  */
 export default function init() {
 }
+console.log('Bootstrapped common-react-js'); 

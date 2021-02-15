@@ -1,8 +1,8 @@
 import React from 'react';
 import Login from './Login';
-// import './App.css';
+import 'common-react-js';
 import ReactDOM from 'react-dom';
-// import properties about de login. Another options here when you are using a hybrid portlet (React + Java) is create configurations and recover System Setting with Java. See more -> https://help.liferay.com/hc/en-us/articles/360018161391-Making-Your-Applications-Configurable
+// import properties about de login. Another op tions here when you are using a hybrid portlet (React + Java) is create configurations and recover System Setting with Java. See more -> https://help.liferay.com/hc/en-us/articles/360018161391-Making-Your-Applications-Configurable
 import properties from './properties/properties';
 
 class App extends React.Component {
