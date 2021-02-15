@@ -1,2 +1,19 @@
 {
+    "exclude":{
+	"*":true
+	},
+	"config":{
+		"imports":{
+			"common-react-js":{
+				"react": "16.8.6",
+				"react-dom": "16.8.6",
+                "crypto-js": "4.0.0",
+                "crypto-random-string": "3.2.0",
+                "jshashes": "1.0.8"
+			},
+			"":{
+				"common-react-js" : "^1.0.0"
+			}
+		}
+	}
 }
