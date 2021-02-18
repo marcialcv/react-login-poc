@@ -9,7 +9,7 @@
 	   "siteNavigationMenuType": "-1",
 	   "expandedLevels": "auto",
 	   "rootMenuItemLevel": "0",
-	   "displayStyleGroupId": "45201",
+	   "displayStyleGroupId": "${group_id}",
 	   "portletSetupPortletDecoratorId": "borderless", "
 	   portletSetupUseCustomTitle":"false"}) />
 
