@@ -1,0 +1,24 @@
+header#banner{
+    background-color: #004b88;
+    padding: 0 5%;
+    display: flex;;
+}
+
+#wrapper{
+    padding: 0;
+}
+
+#heading{
+display: inline-block;
+margin-right: auto;
+}
+
+@media(min-width: 768px){
+    #navigationCollapse {
+        display: inline-block;
+    }
+}
+.wrapper-nav{
+display: -webkit-inline-box;
+margin-top: 3%;
+}
