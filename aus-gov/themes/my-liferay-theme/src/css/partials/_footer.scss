@@ -1,0 +1,27 @@
+.footer {
+    a {
+        color: inherit;
+
+        &:hover,
+        &:focus {
+            color: white;
+        }
+    }
+
+    .icon-social {
+        @include size(64px);
+        line-height: 64px;
+    
+        &:hover,
+        &:focus {
+            color: white !important;
+        }
+    }
+
+    .icon-text-info {
+        &:hover{
+            color: #004b88 !important;
+        }
+     }
+    
+}

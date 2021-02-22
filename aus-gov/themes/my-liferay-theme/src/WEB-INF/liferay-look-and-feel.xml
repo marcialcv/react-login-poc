@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.3.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_3_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.3.0+</version>
+	</compatibility>
+	<theme id="my-liferay-theme" name="My Liferay Theme">
+		<template-extension>ftl</template-extension>
+
+		<!--Border for portlets associate with Theme-->	
+		<portlet-decorator id="barebone" name="Barebone">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+
+	<!--Settings by theme-->	
+	<settings>
+		<setting configurable="true" key="show-navbar-by-theme" options="true,false" type="select" value="true"/>
+		<setting configurable="true" key="twitter-icon" options="true,false" type="select" value="false"/>
+		<setting configurable="true" key="twitter-icon-link-url" type="text" value="Here the link"/>
+		<setting configurable="true" key="show-footer" type="checkbox" value="true" />
+		<setting configurable="true" key="show-header" type="checkbox" value="true" />
+		<setting configurable="true" key="show-header-search" type="checkbox" value="true" />
+		<setting configurable="true" key="wrap-widget-page-content" type="checkbox" value="true" />
+	</settings>
+
+	<!--Custom Layout part of Theme Example-->	
+	<layout-templates>
+			<custom>
+				<layout-template id="my-liferay-layout" name="My Liferay Layout">
+					<template-path>/layouttpl/my_liferay_layout.ftl</template-path>
+					<thumbnail-path>/layouttpl/my_liferay_layout.png</thumbnail-path>
+				</layout-template>
+			</custom>
+	</layout-templates>
+
+	<!--Color Scheme  Example-->	
+	<color-scheme id="01" name="My Default Color Scheme Name">
+			<default-cs>true</default-cs>
+			<css-class>default</css-class>
+		</color-scheme>		
+	<color-scheme id="02" name="Day">
+			<css-class>day</css-class>
+			<color-scheme-images-path>
+				${images-path}/color_schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+		<color-scheme id="03" name="Night">
+			<css-class>night</css-class>
+			<color-scheme-images-path>
+				${images-path}/color_schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>	
+
+	</theme>
+</look-and-feel>
