@@ -7,8 +7,9 @@
 
 /* endinject */
 
-/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
-
+/* This file allows you include your custom styles in one central location for easier upgrade and maintenance. */
+@import "partials/applications";
+@import "partials/nav";
 @import "partials/footer";
 @import "partials/body_custom";
 

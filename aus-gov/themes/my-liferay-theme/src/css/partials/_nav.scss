@@ -1,0 +1,17 @@
+li.lfr-nav-item.nav-item.basic-menu{
+    color: $body-bg;
+
+    &:hover,
+    &:focus {
+        background-color: $nav-color-hover;
+    }
+
+    a {
+        color: inherit;
+        &:hover,
+        &:focus {
+            color: white;
+        }
+    }
+}
+

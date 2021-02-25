@@ -1,0 +1,4 @@
+Bundle-Name: portal-language-overrides
+Bundle-SymbolicName: com.liferay.i18n.language
+Bundle-Version: 1.0.0
+
