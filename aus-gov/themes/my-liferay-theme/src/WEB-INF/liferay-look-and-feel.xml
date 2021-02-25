@@ -8,18 +8,6 @@
 	<theme id="my-liferay-theme" name="My Liferay Theme">
 		<template-extension>ftl</template-extension>
 
-		<!--Border for portlets associate with Theme-->	
-		<portlet-decorator id="barebone" name="Barebone">
-			<default-portlet-decorator>true</default-portlet-decorator>
-			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
-		</portlet-decorator>
-		<portlet-decorator id="borderless" name="Borderless">
-			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
-		</portlet-decorator>
-		<portlet-decorator id="decorate" name="Decorate">
-			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
-		</portlet-decorator>
-
 	<!--Settings by theme-->	
 	<settings>
 		<setting configurable="true" key="show-navbar-by-theme" options="true,false" type="select" value="true"/>
@@ -41,7 +29,7 @@
 			</custom>
 	</layout-templates>
 
-	<!--Color Scheme  Example-->	
+	<!--Color Scheme  Example-->
 	<color-scheme id="01" name="My Default Color Scheme Name">
 			<default-cs>true</default-cs>
 			<css-class>default</css-class>
@@ -57,7 +45,19 @@
 			<color-scheme-images-path>
 				${images-path}/color_schemes/${css-class}
 			</color-scheme-images-path>
-		</color-scheme>	
+		</color-scheme>
+
+	<!--Border for portlets associate with Theme-->	
+		<portlet-decorator id="barebone" name="Barebone">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
 
 	</theme>
 </look-and-feel>

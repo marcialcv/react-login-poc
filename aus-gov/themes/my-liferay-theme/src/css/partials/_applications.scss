@@ -1,0 +1,13 @@
+button#samePage{
+    background-color: red;
+}
+button#queryString{
+    background-color: yellow;
+}
+button#bySession{
+    background-color: blue;
+}
+
+.custom-background-application{
+    background-color: $body-background-application;
+}
