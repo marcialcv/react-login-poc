@@ -33,7 +33,8 @@ export class AppComponent {
 			portletNamespace: Liferay.Language.get('portlet-namespace'),
         	contextPath: Liferay.Language.get('context-path'),
 			portletElementId: Liferay.Language.get('portlet-element-id'),
-			message: Liferay.Language.get('message')
+			message: Liferay.Language.get('message'),
+			poweredBy: Liferay.Language.get('powered-by')
 			
 		}
 		this.imageLogo= "/images/logo_liferay.jpg"
