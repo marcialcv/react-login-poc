@@ -1,0 +1,5 @@
+Bundle-Name: silent-login-angular-app
+Bundle-SymbolicName: silent.login.angular.app
+Bundle-Version: 1.0.0
+Export-Package: silent.login.angular.app.constants
+Web-ContextPath: /silent-login-angular-app
