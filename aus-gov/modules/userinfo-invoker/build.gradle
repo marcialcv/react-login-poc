@@ -1,0 +1,9 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel"
+	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations"
+	
+	compileOnly group: "com.liferay", name: "com.liferay.portal.security.sso.openid.connect.api"
+	compileOnly group: "com.nimbusds", name: "oauth2-oidc-sdk", version: "6.16.2"
+	compileOnly group: 'org.springframework', name: 'spring-web', version: '5.1.9.RELEASE'
+	compileOnly group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.5'
+}

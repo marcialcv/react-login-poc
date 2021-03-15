@@ -1,0 +1,4 @@
+Bundle-Name: userinfo-invoker
+Bundle-SymbolicName: userinfo.invoker
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.sagov.userinfo.api.*
