@@ -13,4 +13,5 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 <%
 String mainRequire = (String)renderRequest.getAttribute("mainRequire");
+String accessToken = (String)renderRequest.getAttribute("accessToken");
 %>

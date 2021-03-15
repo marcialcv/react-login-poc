@@ -1,24 +1,22 @@
 {
 	"compileOnSave": false,
 	"compilerOptions": {
-	  "baseUrl": "./",
-	  "outDir": "build/resources/main/META-INF/resources/lib",
-	  "sourceMap": true,
-	  "declaration": false,
-	  "downlevelIteration": true,
-	  "experimentalDecorators": true,
-	  "moduleResolution": "node",
-	  "importHelpers": true,
-	  "target": "es2015",
-	  "module": "commonjs",
-	  "lib": [
-		"es2018",
-		"dom"
-	  ]
+		"baseUrl": "./",
+		"outDir": "build/resources/main/META-INF/resources/lib",
+		"sourceMap": true,
+		"declaration": false,
+		"downlevelIteration": true,
+		"experimentalDecorators": true,
+		"moduleResolution": "node",
+		"importHelpers": true,
+		"target": "es2015",
+		"module": "commonjs",
+		"lib": [
+			"es2018",
+			"dom"
+		]
 	},
 	"include": [
 		"src/**/*.ts"
 	]
-  }
-
-
+}

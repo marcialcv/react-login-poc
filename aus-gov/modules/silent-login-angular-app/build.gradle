@@ -1,3 +1,4 @@
 dependencies {
 	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+	compileOnly project(":modules:silent-login-service")
 }

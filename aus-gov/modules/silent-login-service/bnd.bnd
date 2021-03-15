@@ -1,0 +1,5 @@
+Bundle-Name: silent-login-service
+Bundle-SymbolicName: silent.login.service
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.sagov.oidc.service.api
+-metatype: *
