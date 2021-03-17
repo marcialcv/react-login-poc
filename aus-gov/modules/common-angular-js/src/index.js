@@ -9,4 +9,4 @@
  */
 export default function init() {
 }
-console.log('Bootstrapped common-angular-js'); 
+console.log('Bootstrapped common-angular-js Angular 10'); 

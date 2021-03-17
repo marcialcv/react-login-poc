@@ -1,0 +1,32 @@
+{
+	"name": "common-angular-js-new",
+	"version": "1.0.0",
+	"description": "Common Angular Js New",
+	"devDependencies": {
+		"liferay-npm-bundler": "^2.24.0",
+		"liferay-npm-build-support": "^2.24.0",
+		"babel-cli": "6.26.0",
+		"babel-preset-env": "1.7.0"
+	},
+	"dependencies": {
+		"@angular/animations": "11.2.4",
+		"@angular/common": "11.2.4",
+		"@angular/compiler": "11.2.4",
+		"@angular/core": "11.2.4",
+		"@angular/forms": "11.2.4",
+		"@angular/platform-browser": "11.2.4",
+		"@angular/platform-browser-dynamic": "11.2.4",
+		"@angular/router": "11.2.4",
+		"rxjs": "6.6.3",
+		"tslib": "2.0.3",
+		"core-js": "^2.5.1",
+		"zone.js": "0.10.3"
+	},
+	"scripts": {
+		"build": "babel --source-maps -d build src && npm run copy-assets && liferay-npm-bundler",
+		"copy-assets": "lnbs-copy-assets",
+		"deploy": "npm run build && lnbs-deploy",
+		"translate": "lnbs-translate"
+	},
+	"main": "index.js"
+}
